@@ -53,19 +53,89 @@ export const runExample = async () => {
     address: address,
   };
 
+  /**
+   * SUCCESSFUL TEST CASES
+   */
+
+
+  // @DEV Simple ETH balance check on Base
+  // const accs = [
+  //   {
+  //     contractAddress: '',
+  //     standardContractType: '',
+  //     chain: 'base',
+  //     method: 'eth_getBalance',
+  //     parameters: [':userAddress', 'latest'],
+  //     returnValueTest: {
+  //       comparator: '>=',
+  //       value: '0',
+  //     },
+  //   },
+  // ];
+
+  // @DEV Simple ERC20 balance check on Ethereum
+  // const accs = [
+  //   {
+  //     contractAddress: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+  //     standardContractType: 'ERC20',
+  //     chain: 'ethereum',
+  //     method: 'balanceOf',
+  //     parameters: [':userAddress'],
+  //     returnValueTest: {
+  //       comparator: '>=',
+  //       value: '0',
+  //     },
+  //   },
+  // ];
+
+  /**
+   * FAILED TEST CASES
+   */
+
+  // @DEV Simple ERC20 balance check on Base
   const accs = [
     {
-      contractAddress: '',
-      standardContractType: '',
+      contractAddress: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
+      standardContractType: 'ERC20',
       chain: 'base',
-      method: 'eth_getBalance',
-      parameters: [':userAddress', 'latest'],
+      method: 'balanceOf',
+      parameters: [':userAddress'],
       returnValueTest: {
         comparator: '>=',
         value: '0',
       },
     },
   ];
+
+  // @DEV Simple ERC20 symbol check on Base
+  // const accs = [
+  //   {
+  //     contractAddress: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
+  //     standardContractType: 'ERC20',
+  //     chain: 'base',
+  //     method: 'symbol',
+  //     parameters: [],
+  //     returnValueTest: {
+  //       comparator: '!=',
+  //       value: '',
+  //     },
+  //   },
+  // ];
+
+  // @DEV Simple ERC20 symbol check on Ethereum
+  // const accs = [
+  //   {
+  //     contractAddress: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+  //     standardContractType: 'ERC20',
+  //     chain: 'ethereum',
+  //     method: 'symbol',
+  //     parameters: [],
+  //     returnValueTest: {
+  //       comparator: '!=',
+  //       value: '',
+  //     },
+  //   },
+  // ];
 
   const res = await LitJsSdk.encryptString("Hello, world!");
 
